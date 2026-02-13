@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'flame_sdk_ios'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'Flame iOS Ad SDK'
   s.description      = 'Flame iOS advertising aggregation SDK'
   s.homepage         = 'https://github.com/your_org/flame_sdk_ios'
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '12.0'
 
   # ✅ Binary SDK
-  s.vendored_frameworks = 'flame_sdk_ios.xcframework'
+  s.vendored_frameworks = '**/flame_sdk_ios.xcframework'
   s.source_files = 'flame_sdk_ios.xcframework/*/flame_sdk_ios.framework/Headers/*.h'
   s.public_header_files = 'flame_sdk_ios.xcframework/*/flame_sdk_ios.framework/Headers/*.h'
 
