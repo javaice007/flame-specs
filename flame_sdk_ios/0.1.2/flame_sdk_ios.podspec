@@ -18,13 +18,15 @@ Pod::Spec.new do |s|
 
   # 3. 平台要求
   s.ios.deployment_target = '12.0'
+  s.swift_version = '5.0'
 
   # ✅ Binary SDK
   s.vendored_frameworks = '**/flame_sdk_ios.xcframework'
 
-  # ========= AnyThink Core =========
-  s.dependency 'AnyThinkiOS','6.5.42'
+  # ========= AD Core =========
   s.dependency 'OpenSSL-Universal', '1.1.180'
+  
+  s.dependency 'AnyThinkiOS','6.5.42'
   s.dependency 'AnyThinkMediationAdxSmartdigimktCNAdapter','6.5.42.1'
   s.dependency 'AnyThinkMediationGromoreAdapter','7.4.0.0.0'
   s.dependency 'AnyThinkMediationBaiduAdapter','10.032.0'
@@ -35,6 +37,8 @@ Pod::Spec.new do |s|
   s.dependency 'AnyThinkMediationGDTAdapter','4.15.70.0'
   
   # 注意：不要写 s.source_files，因为你不需要向用户分发源代码
-  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
-  s.user_target_xcconfig = { 'OTHER_LDFLAGS' => '-ObjC' }
+  s.pod_target_xcconfig = {
+    'OTHER_LDFLAGS' => '-ObjC',
+    'DEFINES_MODULE' => 'YES'
+  }
 end
