@@ -40,8 +40,9 @@ Pod::Spec.new do |s|
   s.dependency 'AnyThinkMediationTTAdapter_Mix','7.4.0.0.0'
   s.dependency 'AnyThinkMediationGDTAdapter','4.15.70.1'
   s.dependency 'FLAD', '2.9.0.1.1'
-  s.dependency 'FLAD/FLAdFunLinkAdapter'
   s.dependency 'FunlinkSDK', '2.9.0.1.0'
+  s.dependency 'FLAD/FLAdFunLinkAdapter'
+  s.dependency 'FunlinkTopOnAdapter'
   
   # 注意：不要写 s.source_files，因为你不需要向用户分发源代码
   s.pod_target_xcconfig = {
