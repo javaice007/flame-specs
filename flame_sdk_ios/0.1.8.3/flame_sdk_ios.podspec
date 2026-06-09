@@ -59,15 +59,13 @@ Pod::Spec.new do |s|
   s.script_phase = {
     :name => 'Strip Bitcode from Dependencies',
     :script => <<~SCRIPT,
-      echo "🧹 [flame_sdk_ios] Stripping bitcode from embedded frameworks..."
-      find "${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}" -type f -perm +111 -name "*.framework" | while read fw_dir; do
+      echo "[flame_sdk_ios] Stripping bitcode from embedded frameworks..."
+      find "${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}" -name "*.framework" -type d | while read fw_dir; do
         binary="$fw_dir/$(basename "$fw_dir" .framework)"
-        if [ -f "$binary" ] && xcrun bitcode_strip "$binary" -r -o "$binary" 2>/dev/null; then
-          echo "  stripped: $(basename "$fw_dir")"
+        if [ -f "$binary" ]; then
+          xcrun bitcode_strip "$binary" -r -o "$binary" 2>/dev/null && echo "  stripped: $(basename "$fw_dir")"
         fi
       done
-      echo "✅ [flame_sdk_ios] Bitcode stripping done"
     SCRIPT
-    :execution_position => :after_embed_frameworks
   }
 end

@@ -54,4 +54,19 @@ Pod::Spec.new do |s|
     'OTHER_LDFLAGS' => '-ObjC',
     'DEFINES_MODULE' => 'YES'
   }
+
+  # 剥离所有依赖 framework 内嵌的 bitcode（Apple 已废弃 bitcode，App Store 不接受含 bitcode 的二进制）
+  s.script_phase = {
+    :name => 'Strip Bitcode from Dependencies',
+    :script => <<~SCRIPT,
+      echo "🧹 [flame_sdk_ios] Stripping bitcode from embedded frameworks..."
+      find "${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}" -type f -perm +111 -name "*.framework" | while read fw_dir; do
+        binary="$fw_dir/$(basename "$fw_dir" .framework)"
+        if [ -f "$binary" ] && xcrun bitcode_strip "$binary" -r -o "$binary" 2>/dev/null; then
+          echo "  stripped: $(basename "$fw_dir")"
+        fi
+      done
+      echo "✅ [flame_sdk_ios] Bitcode stripping done"
+    SCRIPT
+  }
 end
