@@ -1,12 +1,12 @@
 {
   "name": "flame_sdk_ios_tk_sigmob_adapter",
   "version": "4.20.12.2.0",
-  "summary": "Flame iOS SDK TK Sigmob adapter without SigmobAd-iOS dependency.",
-  "description": "A Flame iOS SDK private TK Sigmob adapter podspec wrapper. It uses TopOn's AnyThinkSigmobAdapter.xcframework and does not depend on SigmobAd-iOS. WindSDK and WindFoundation are provided by ToBid-iOS-RC to avoid duplicate frameworks in single-binary dual-core integration.",
+  "summary": "Flame iOS SDK private adapter dependency for TK integration.",
+  "description": "Flame iOS SDK private adapter dependency for TK integration.",
   "homepage": "https://github.com/javaice007/flame_sdk_ios",
   "license": {
     "type": "Commercial",
-    "text": "TopOn AnyThinkSigmobAdapter.xcframework Copyright TopOn. Used under TopOn commercial license. Podspec wrapper Copyright Flame."
+    "text": "Copyright Flame. All rights reserved."
   },
   "authors": {
     "flame": "flame@toowe.com"
