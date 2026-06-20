@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
   s.author           = { 'flame' => 'flame@toowe.com' }
 
   # GitHub archive zip 默认不剥除顶层版本目录，必须显式 :flatten => true
-  s.source = { :git => 'file:///Users/khj/Documents/code/97_ad/ios/github_build/flame_sdk_ios', :tag => s.version.to_s }
+  s.source = { :git => 'https://github.com/javaice007/flame_sdk_ios.git', :tag => s.version.to_s }
 
   # 商业 sdk
   s.license = {
@@ -75,7 +75,7 @@ Pod::Spec.new do |s|
   # 复用 TopOn AnyThinkSigmobAdapter.xcframework，去掉 SigmobAd-iOS 传递依赖，
   # WindSDK / WindFoundation 由 ToBid-iOS-RC 统一提供，避免与 ToBid-iOS-RC 的同名 framework 冲突。
   # 此 pod 当前在私有 spec repo javaice007-flame-specs 提供（pod repo push 后；本地实验在 research/local_specs）。
-  s.dependency 'flame_sdk_ios_tk_sigmob_adapter', '4.20.12.2.0'  # Phase 5A.12 Step 3C: 重命名为下划线风格
+  s.dependency 'flame_sdk_ios_tk_sigmob_adapter', '4.20.12.2.0'
   s.dependency 'AnyThinkMediationTTAdapter_Mix', '7.6.0.4.2.0'
   s.dependency 'AnyThinkMediationGDTAdapter', '4.15.90.2.0'
 

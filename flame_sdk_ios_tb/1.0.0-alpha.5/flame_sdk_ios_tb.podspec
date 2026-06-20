@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
   s.author           = { 'flame' => 'flame@toowe.com' }
 
   # GitHub archive zip 默认不剥除顶层版本目录，必须显式 :flatten => true
-  s.source = { :git => 'file:///Users/khj/Documents/code/97_ad/ios/github_build/flame_sdk_ios', :tag => s.version.to_s }
+  s.source = { :git => 'https://github.com/javaice007/flame_sdk_ios.git', :tag => s.version.to_s }
 
   # 商业 sdk
   s.license = {
