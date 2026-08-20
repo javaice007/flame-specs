@@ -3,7 +3,7 @@
 # ------------------------------------------------------------
 # 私有 Spec Repo（flame-specs）版本索引。源码 + transitive 三方
 # 依赖分发（A3.1 单 Pod 契约）：默认 Content（真机），CoreAds（模拟器）。
-# s.source = gitee 源码仓库，tag = 0.1.0（A6.3 打 tag 后 pod install 可解析）。
+# s.source = github 源码仓库 javaice007/flame_content_sdk_ios，tag = 0.1.0。
 # 客户接入：pod 'flame_content_sdk_ios'
 # ============================================================
 Pod::Spec.new do |s|
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.homepage     = 'https://example.invalid/flame_content_sdk_ios'
   s.license      = { :type => 'Proprietary', :text => 'Internal project; distribution terms are defined by the owner.' }
   s.author       = { 'Flame' => 'sdk@invalid.local' }
-  s.source       = { :git => 'https://gitee.com/toowe-admin/flamecontentsdkios.git', :tag => s.version.to_s }
+  s.source       = { :git => 'https://github.com/javaice007/flame_content_sdk_ios.git', :tag => s.version.to_s }
   s.platform     = :ios, '13.0'
   s.requires_arc = true
   s.source_files = 'flame_content_sdk_ios/**/*.{h,m}'
