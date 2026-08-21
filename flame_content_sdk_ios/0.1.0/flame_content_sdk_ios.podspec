@@ -19,16 +19,18 @@ Pod::Spec.new do |s|
   s.license          = { :type => 'Proprietary', :text => 'Internal project; distribution terms are defined by the owner.' }
   s.author           = { 'Flame' => 'sdk@invalid.local' }
 
-  # 二进制发布仓库（vendored xcframework + release metadata）。
-  # 托管 URL 待 Flame 提供（当前使用本地发布仓库路径，pod install 本地可解析）；
-  # 正式客户接入时替换为托管地址，tag = 0.1.0。
-  s.source = { :git => '/Users/khj/Documents/code/97_ad/ios/github_build/flame_content_sdk_ios', :tag => s.version.to_s }
+  # 二进制发布仓库（dist repo，对齐 flame_sdk_ios 模型）：tag = 版本号，
+  # tag archive 根路径承载 vendored xcframework。
+  s.source = { :git => 'https://github.com/javaice007/flame_content_sdk_ios.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '13.0'
   s.requires_arc          = true
 
-  # vendored 二进制（二进制发布仓库内路径，相对该仓库根）
-  s.vendored_frameworks = '0.1.0/flame_content_sdk_ios.xcframework'
+  s.module_name        = 'flame_content_sdk_ios'
+  s.frameworks         = ['Foundation', 'UIKit']
+
+  # vendored 二进制（dist repo 根路径，随 tag 发布）
+  s.vendored_frameworks = 'flame_content_sdk_ios.xcframework'
 
   s.pod_target_xcconfig = {
     'OTHER_LDFLAGS' => ['$(inherited)', '-undefined', 'dynamic_lookup']
